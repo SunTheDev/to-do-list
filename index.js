@@ -2,12 +2,12 @@ const TodoTask = require("./models/TodoTask");
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 require('dotenv').config()
 
 // dotenv.config();
-app.listen(process.env.PORT || PORT, () => console.log('Server up and running on ${PORT}.'))
+app.listen(PORT, () => console.log('Server up and running on ${PORT}.'))
 app.use("/static", express.static("public"))
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
