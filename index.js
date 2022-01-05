@@ -14,7 +14,7 @@ app.set('view engine', 'ejs')
 
 //connection to db
 // mongoose.set("useFindAndModify", false);
-// mongoose.set('useUnifiedTopology', true);
+mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('Connected to db!')
 })
