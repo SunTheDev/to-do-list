@@ -2,19 +2,19 @@ const TodoTask = require("./models/TodoTask");
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const PORT = process.env.PORT;
+let PORT = 3000;
 const mongoose = require("mongoose");
 require('dotenv').config()
 
 // dotenv.config();
-app.listen(PORT, () => console.log('Server up and running on ${PORT}.'))
+app.listen(PORT, () => console.log(`Server up and running on ${PORT}.`))
 app.use("/static", express.static("public"))
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 //connection to db
 // mongoose.set("useFindAndModify", false);
-mongoose.set('useUnifiedTopology', true);
+// mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('Connected to db!')
 })
