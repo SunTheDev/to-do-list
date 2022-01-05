@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 require('dotenv').config()
 
 // dotenv.config();
-
+app.listen(process.env.PORT || PORT, () => console.log('Server up and running on ${PORT}.'))
 app.use("/static", express.static("public"))
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
@@ -17,7 +17,6 @@ app.set('view engine', 'ejs')
 // mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('Connected to db!')
-    app.listen(process.env.PORT || PORT, () => console.log('Server up and running on ${PORT}.'))
 })
 
 //Get Method
